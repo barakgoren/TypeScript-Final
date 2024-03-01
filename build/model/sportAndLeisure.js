@@ -28,7 +28,22 @@ var Fitness = /** @class */ (function (_super) {
         alert("You have new training");
     };
     Fitness.prototype.alert = function () {
-        alert("You have training in " + this.location + " at " + this.time + " on " + this.trainingDateEvent);
+        var modal = document.getElementById("myModal");
+        if (modal !== null) {
+            modal.style.display = "block";
+        }
+        var modalContent = document.getElementById("modal-text");
+        if (modalContent !== null) {
+            modalContent.innerHTML = "You have " + this._title + " at " + this.trainingDateEvent.toDateString() + " in " + this.location + " at " + this.time;
+        }
+        var span = document.getElementsByClassName("close")[0];
+        if (span !== undefined) {
+            span.onclick = function () {
+                if (modal !== null) {
+                    modal.style.display = "none";
+                }
+            };
+        }
     };
     return Fitness;
 }(Note));

@@ -24,6 +24,22 @@ class Fitness extends Note implements SportsAndLeisure {
     }
 
     alert(): void {
-        alert("You have training in " + this.location + " at " + this.time + " on " + this.trainingDateEvent);
+        let modal = document.getElementById("myModal");
+        if (modal !== null) {
+            modal.style.display = "block";
+        }
+        let modalContent = document.getElementById("modal-text");
+        if (modalContent !== null) {
+            modalContent.innerHTML = "You have " + this._title + " at " + this.trainingDateEvent.toDateString() + " in " + this.location + " at " + this.time;
+        }
+
+        let span = document.getElementsByClassName("close")[0] as HTMLElement;
+        if (span !== undefined) {
+            span.onclick = function () {
+                if (modal !== null) {
+                    modal.style.display = "none";
+                }
+            }
+        }
     }
 }
