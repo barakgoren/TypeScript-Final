@@ -8,9 +8,48 @@
     <link href="style.css" rel="stylesheet">
     <script src="build/model/notes.js" ></script>
     <script src="build/model/meetings.js" ></script>
+    <script src="build/model/taks.js" ></script>
     <script defer src="build/main.js" ></script>
 </head>
 
 <body>
+    <div class="bodyPos">
+        <h1>Todo List</h1>
+        <div class="box">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Football</h5>
+                            <p class="card-text">Date: 20/04/2013</p>
+                            <p class="card-text">Theme: Sport</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Daily Meeting</h5>
+                            <p class="card-text">Date: 27/04/2013</p>
+                            <p class="card-text">Theme: Meeting</p>
+                            <a href="#" class="btn btn-primary">Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">form</h5>
+                            <p class="card-text">Date: 03/05/2023</p>
+                            <p class="card-text">Theme: Meeting</p>
+                            <button class="btn btn-primary" id="btnDetails">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="addButton">Add</button>
+    </div>
 </body>
 </html>
