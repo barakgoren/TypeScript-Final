@@ -1,9 +1,9 @@
 abstract class Note {
-    private _id: number;
-    private _date: Date;
-    private _title: string;
-    private _text: string;
-    private _image?: string;
+    _id: number;
+    _date: Date;
+    _title: string;
+    _text: string;
+    _image?: string;
 
     constructor(id: number, title: string, text: string, image?: string) {
         this._id = id;
@@ -12,6 +12,6 @@ abstract class Note {
         this._text = text;
         this._image = image;
     }
-    
+
     abstract newNote(): void;
 }

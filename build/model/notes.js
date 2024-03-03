@@ -1,3 +1,4 @@
+"use strict";
 var Note = /** @class */ (function () {
     function Note(id, title, text, image) {
         this._id = id;
