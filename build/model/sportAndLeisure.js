@@ -16,12 +16,12 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Fitness = /** @class */ (function (_super) {
     __extends(Fitness, _super);
-    function Fitness(id, title, text, location, trainingDateEvent, time, requiredEquipment, image) {
+    // requiredEquipment?: string[];
+    function Fitness(id, title, text, location, trainingDateEvent, time, /*requiredEquipment: string[],*/ image) {
         var _this = _super.call(this, id, title, text, image) || this;
         _this.location = location;
         _this.trainingDateEvent = trainingDateEvent;
         _this.time = time;
-        _this.requiredEquipment = requiredEquipment;
         return _this;
     }
     Fitness.prototype.newNote = function () {
