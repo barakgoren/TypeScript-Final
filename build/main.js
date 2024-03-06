@@ -60,7 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var newTaskFormContainer = document.getElementById('newTaskFormContainer');
     if (newTaskButton && newTaskFormContainer) {
         newTaskButton.addEventListener('click', function () {
-            newTaskFormContainer.style.display = 'block';
+            if (newTaskFormContainer.style.display === 'block') {
+                newTaskFormContainer.style.display = 'none';
+            }
+            else {
+                newTaskFormContainer.style.display = 'block';
+            }
         });
     }
     else {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>document</title>
+    <title>TO DO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
@@ -36,13 +36,13 @@
             
         </div>
         <!-- Task list area -->
-        <div class="container-fluid">
+        <div class="container-fluid tablePos">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 titlePos">
                     <h2 class="my-2 text-center">Task List</h2>
                 </div>
             </div>
-            <div class="row p-0">
+            <div class="row tableR">
                 <div class="col-12">
                     <!-- Table here -->
                     <table class="table table-hover">
@@ -59,21 +59,26 @@
                             <!-- Task list items will be added dynamically here -->
                         </tbody>
                     </table>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <button id="newTaskButton" class="AddbuttonStyle">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <button id="newTaskButton" class="AddbuttonStyle">New task</button>
-            </div>
-        </div>
-    </div>
+    
     <div id="newTaskFormContainer" class="container" style="display: none;">
     <div class="row">
         <div class="col-12">
-            <form id="newTaskForm" class="row justify-content-around border border-black rounded-4 p-3" >
+            <form id="newTaskForm" class="row" >
                 <div class="taskConfig">
                     <div class="PosTask">
                         <label class="fw-bold" for="taskName">Task Name:</label>
@@ -123,7 +128,7 @@
                     <textarea class="TextAreaStyle" id="taskDescription" name="taskDescription" rows="3" style="resize: none;"></textarea>
                 </div>
                 <div class="col-12 my-2 row justify-content-center">
-                    <button type="submit" class="AddbuttonStyle" >Add Task</button>
+                    <button type="submit" class="Add2buttonStyle" >Add Task</button>
                 </div>
             </form>
         </div>

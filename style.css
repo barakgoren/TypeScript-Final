@@ -1,6 +1,3 @@
-body{
-    /* background-color: bisque; */
-}
 tbody::-webkit-scrollbar {
     display: none;
 }
@@ -66,20 +63,51 @@ thead tr th {
 .inputPos{
     border-radius: 8px;
     border: none;
-    background-color: rgb(240, 213, 180);
     text-align: center;
 }
 
 .AddbuttonStyle{
-    width: 20%;
-    background-color: rgb(240, 213, 180);
+    /* top: -40px;
+    right: 150px;
+    position: absolute; */
+    margin-top: 40px;
+    background-color: white;
+    border: none;
+    color: rgb(255, 111, 0) ;    
+}
+.AddbuttonStyle:hover{
+    background-color: rgb(255, 111, 0) ; 
+    color: white;  
     border-radius: 8px;
-    color: rgb(115, 90, 60);
+    /* width: auto; */
+}
+
+.titlePos{
+    max-width: 12%;
+    min-width: 130px;
+    top: -30px;
+    right: 70%;
+    position: absolute;
+    /* margin-bottom: 20px; */
+    background-color: white;
+    border: none;
+    color: rgb(255, 111, 0) ;    
+}
+
+
+.Add2buttonStyle{
+    width: 20%;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    /* color: rgb(115, 90, 60); */
     font-size: 18px;
     font-weight: 500;
+    margin-top: 30px;
 }
-.AddbuttonStyle:hover {
-    background-color:rgb(90, 70, 50);
+
+.Add2buttonStyle:hover {
+    background-color: rgb(255, 111, 0);
     color: white;
 }
 
@@ -90,8 +118,46 @@ thead tr th {
     border-radius: 4px;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    background-color: rgb(240, 213, 180);
 }
 
 
+#newTaskFormContainer{
+    display: none;
+    margin: 20px auto;
+    padding: 30px;
+    border: 2px solid rgb(255, 111, 0);
+    border-radius: 8px;
+    justify-content: center;
+    position: relative;
+}
 
+.btnClose{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.btnClose:hover{
+    color: #888;
+    cursor: pointer;
+}
+
+
+h1{
+    color:rgb(0, 0, 0);
+}
+
+.tablePos{
+    margin: 40px auto;
+    position: relative;
+}
+
+.tableR{
+    margin: 0 auto;
+    width: 70%;
+    border: 2px solid rgb(255, 111, 0);
+    border-radius: 8px;
+    text-align: center;
+    padding: 40px;   
+     
+}

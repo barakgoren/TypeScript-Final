@@ -85,7 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (newTaskButton && newTaskFormContainer) {
         newTaskButton.addEventListener('click', () => {
-            newTaskFormContainer.style.display = 'block';
+            if (newTaskFormContainer.style.display === 'block') {
+                newTaskFormContainer.style.display = 'none';
+            } else {
+                newTaskFormContainer.style.display = 'block';
+            }
         });
     } else {
         console.error("Les éléments requis n'ont pas été trouvés.");
