@@ -51,10 +51,21 @@ function addRowToTable(task: Fitness) {
     }
 }
 
-window.onload = function () {
+const displayTasks = () => {
     let tableContent = document.getElementById("taskList");
+    if (tableContent !== null) {
+        tableContent.innerHTML = "";
+    }
     fitnessTasks.forEach(task => {
         let row = document.createElement("tr");
+        row.innerHTML = `
+        <td>${capitalize(task._title)}</td>
+        <td>${task._text}</td>
+        <td>${task.location}</td>
+        <td>${task._date.toDateString()}</td>
+        <td>${task.time}</td>
+        `;
+        if (tableContent !== null) {
         row.innerHTML = `
         <td>${capitalize(task._title)}</td>
         <td>${task._text}</td>

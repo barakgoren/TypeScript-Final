@@ -37,10 +37,14 @@ function addRowToTable(task) {
         alert("New Fitness Task added successfully!");
     }
 }
-window.onload = function () {
+var displayTasks = function () {
     var tableContent = document.getElementById("taskList");
+    if (tableContent !== null) {
+        tableContent.innerHTML = "";
+    }
     fitnessTasks.forEach(function (task) {
         var row = document.createElement("tr");
+        row.innerHTML = "\n        <td>".concat(capitalize(task._title), "</td>\n        <td>").concat(task._text, "</td>\n        <td>").concat(task.location, "</td>\n        <td>").concat(task._date.toDateString(), "</td>\n        <td>").concat(task.time, "</td>\n        ");
         row.innerHTML = "\n        <td>".concat(capitalize(task._title), "</td>\n        <td>").concat(task._text, "</td>\n        <td>").concat(task.location, "</td>\n        <td>").concat(task._date.toDateString(), "</td>\n        <td>").concat(task.time, "</td>\n        ");
         if (tableContent !== null) {
             tableContent.appendChild(row);
@@ -72,3 +76,4 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Les éléments requis n'ont pas été trouvés.");
     }
 });
+displayTasks();

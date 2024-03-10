@@ -4,12 +4,12 @@ interface Meetings {
     dateOfCommande(): void;
 }
 
-class Meetings extends Note implements Meetings { 
-        constructor(id: number, title: string,
+class Meetings extends Note implements Meetings {
+    constructor(id: number, title: string,
         text: string, position: string, dateOfMeeting: string, image?: string) {
-        super(id, title, text, image); 
-        this._position = position; 
-        this._dateOfMeeting = dateOfMeeting; 
+        super(id, title, text, image);
+        this._position = position;
+        this._dateOfMeeting = dateOfMeeting;
     }
 
     newNote(): void {
@@ -17,7 +17,7 @@ class Meetings extends Note implements Meetings {
     }
 
     dateOfCommande(): void {
-        alert(this._dateOfMeeting +" "+ this._position); 
+        alert(this._dateOfMeeting + " " + this._position);
     }
 
 }
