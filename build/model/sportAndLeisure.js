@@ -34,13 +34,50 @@ var Fitness = /** @class */ (function (_super) {
         }
         var modalContent = document.getElementById("modal-text");
         if (modalContent !== null) {
-            modalContent.innerHTML = "You have " + this._title + " at " + this.trainingDateEvent.toDateString() + " in " + this.location + " at " + this.time;
+            modalContent.innerHTML = "\n            <div class=\"col-12 h2 text-center\">\n                    Task Details\n                </div>\n                <div class=\"row justify-content-between\">\n                    <div class=\"d-flex p-2 justify-content-center col-6\">\n                        <label for=\"taskName\">Name:</label>\n                        <div id=\"taskName\"  class=\"mx-2\">".concat(this._title, "</div>\n                    </div>\n                    <div class=\"d-flex p-2 justify-content-center col-6\">\n                        <label for=\"taskCat\">Category:</label>\n                        <div id=\"taskCat\" class=\"mx-2\">").concat(this.constructor.name, "</div>\n                    </div>\n                    <div class=\"d-flex p-2 justify-content-center col-6\">\n                        <label for=\"taskDate\">Date:</label>\n                        <div id=\"taskDate\" class=\"mx-2\">").concat(this._date.toDateString(), "</div>\n                    </div>\n                    <div class=\"d-flex p-2 justify-content-center col-6\">\n                        <label for=\"taskTime\">Time:</label>\n                        <div id=\"taskTime\" class=\"mx-2\">").concat(this.time, "</div>\n                    </div>\n                    <div class=\"d-flex p-2 justify-content-center col-6\">\n                        <label for=\"taskLocation\">Location:</label>\n                        <div id=\"taskLocation\" class=\"mx-2\">at ").concat(this.location, "</div>\n                    </div>\n                    <div class= \"d-flex p-2 flex-column align-items-center my-2\">\n                        <label for=\"taskDesc\" class=\"h6\">Description</label>\n                        <div id=\"taskDesc\" class=\"mx-2\"> ").concat(this._text, "</div>\n                    </div>\n                </div>\n            ");
         }
         var span = document.getElementsByClassName("close")[0];
         if (span !== undefined) {
             span.onclick = function () {
                 if (modal !== null) {
                     modal.style.display = "none";
+                }
+            };
+        }
+        var editBtn = document.getElementById("editBtn");
+        var thisTask = this;
+        if (editBtn !== null) {
+            editBtn.onclick = function () {
+                var form = document.createElement("form");
+                if (form !== null) {
+                    form.innerHTML = "\n                    <div class=\"col-12 h2 text-center\">\n                            Task Details\n                        </div>\n                        <div class=\"row justify-content-between\">\n                            <div class=\"d-flex p-2 justify-content-center col-6\">\n                                <label for=\"taskName\">Name:</label>\n                                <input id=\"taskName\"  class=\"mx-2\" value=\"".concat(thisTask._title, "\">\n                            </div>\n                            <div class=\"d-flex p-2 justify-content-center col-6\">\n                                <label for=\"taskCat\">Category:</label>\n                                <input id=\"taskCat\" class=\"mx-2\" value=\"").concat(thisTask.constructor.name, "\">\n                            </div>\n                            <div class=\"d-flex p-2 justify-content-center col-6\">\n                                <label for=\"taskDate\">Date:</label>\n                                <input type=\"date\" id=\"taskDate\" class=\"mx-2\" value=\"").concat(thisTask._date.toISOString().slice(0, 10), "\">\n                            </div>\n                            <div class=\"d-flex p-2 justify-content-center col-6\">\n                                <label for=\"taskTime\">Time:</label>\n                                <input id=\"taskTime\" class=\"mx-2\" value=\"").concat(thisTask.time, "\">\n                            </div>\n                            <div class=\"d-flex p-2 justify-content-center col-6\">\n                                <label for=\"taskLocation\">Location:</label>\n                                <input id=\"taskLocation\" class=\"mx-2\" value=\"").concat(thisTask.location, "\">\n                            </div>\n                            <div class= \"d-flex p-2 flex-column align-items-center my-2\">\n                                <label for=\"taskDesc\" class=\"h6\">Description</label>\n                                <textarea id=\"taskDesc\" class=\"mx-2\">").concat(thisTask._text, "</textarea>\n                            </div>\n                            <div class=\"d-flex p-2 justify-content-center col-12\">\n                                <button id=\"submitBtn\" class=\"btn btn-primary\">Submit</button>\n                            </div>\n                        </div>\n                    ");
+                    if (modalContent !== null) {
+                        modalContent.innerHTML = "";
+                        modalContent.appendChild(form);
+                    }
+                    form.addEventListener("submit", function (event) {
+                        event.preventDefault();
+                        var title = form.elements.namedItem("taskName");
+                        var date = form.elements.namedItem("taskDate");
+                        var time = form.elements.namedItem("taskTime");
+                        var location = form.elements.namedItem("taskLocation");
+                        var desc = form.elements.namedItem("taskDesc");
+                        thisTask._title = title.value;
+                        thisTask._date = new Date(date.value);
+                        thisTask.time = time.value;
+                        thisTask.location = location.value;
+                        thisTask._text = desc.value;
+                        console.log(event);
+                        console.log("form submitted");
+                        // close the modal
+                        if (modal !== null) {
+                            modal.style.display = "none";
+                            displayTasks();
+                        }
+                    });
+                }
+                else {
+                    console.log("form is null");
                 }
             };
         }

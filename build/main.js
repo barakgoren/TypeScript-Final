@@ -14,30 +14,14 @@ function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 ;
-window.onload = function () {
+var displayTasks = function () {
     var tableContent = document.getElementById("taskList");
+    if (tableContent !== null) {
+        tableContent.innerHTML = "";
+    }
     fitnessTasks.forEach(function (task) {
         var row = document.createElement("tr");
-        var cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(capitalize(task._title)));
-        cell.style.color = "red";
-        cell.style.fontWeight = "bold";
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task._text.substring(0, 15) + "..."));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.location));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.trainingDateEvent.toDateString()));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.time));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.requiredEquipment.join(", ").substring(0, 15) + "..."));
-        row.appendChild(cell);
+        row.innerHTML = "\n        <td>".concat(capitalize(task._title), "</td>\n        <td>").concat(task._text, "</td>\n        <td>").concat(task.location, "</td>\n        <td>").concat(task._date.toDateString(), "</td>\n        <td>").concat(task.time, "</td>\n        ");
         if (tableContent !== null) {
             tableContent.appendChild(row);
         }
@@ -46,3 +30,4 @@ window.onload = function () {
         });
     });
 };
+displayTasks();

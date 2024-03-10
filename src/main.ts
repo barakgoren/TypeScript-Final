@@ -14,31 +14,21 @@ function capitalize(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-window.onload = function () {
+const displayTasks = () => {
     let tableContent = document.getElementById("taskList");
+    if (tableContent !== null) {
+        tableContent.innerHTML = "";
+    }
     fitnessTasks.forEach(task => {
         let row = document.createElement("tr");
-        let cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(capitalize(task._title)));
-        cell.style.color = "red";
-        cell.style.fontWeight = "bold";
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task._text.substring(0, 15) + "..."));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.location));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.trainingDateEvent.toDateString()));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.time));
-        row.appendChild(cell);
-        cell = document.createElement("td");
-        cell.appendChild(document.createTextNode(task.requiredEquipment.join(", ").substring(0, 15) + "..."));
-        row.appendChild(cell);
-        if(tableContent !== null){
+        row.innerHTML = `
+        <td>${capitalize(task._title)}</td>
+        <td>${task._text}</td>
+        <td>${task.location}</td>
+        <td>${task._date.toDateString()}</td>
+        <td>${task.time}</td>
+        `;
+        if (tableContent !== null) {
             tableContent.appendChild(row);
         }
         row.addEventListener('click', () => {
@@ -46,3 +36,4 @@ window.onload = function () {
         });
     });
 }
+displayTasks();

@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="build/services/modalController.js"></script>
     <script src="build/model/notes.js"></script>
     <script src="build/model/sportAndLeisure.js"></script>
@@ -18,6 +19,11 @@
             background-color: bisque;
             height: 100vh;
             overflow: hidden;
+        }
+
+        .task-table {
+            /* Adjust the height of the table to the height of the window */
+            height: 100% !important;
         }
 
         tbody::-webkit-scrollbar {
@@ -78,15 +84,27 @@
             text-decoration: none;
             cursor: pointer;
         }
+        .fa-edit {
+            color: #aaa;
+        }
+        .fa-edit:hover,
+        .fa-edit:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
     <div id="myModal" class="modal">
         <div class="modal-content" id="modal-content">
-            <span class="close">&times;</span>
-            <div id="modal-text">
-
+            <div>
+                <span id="editBtn" class="fas fa-edit"></span>
+                <span class="close">&times;</span>
+            </div>
+            <div id="modal-text" class="row justify-content-center">
+                
             </div>
         </div>
     </div>
@@ -133,10 +151,10 @@
                 </div>
 
             </div>
-            <div class="row p-0">
+            <div class="row h-100 p-0">
                 <div class="col-12">
                     <!-- Table here -->
-                    <table class="table table-hover">
+                    <table class="tasks-table table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col">Task Name</th>
@@ -144,7 +162,6 @@
                                 <th scope="col">Location</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Hour</th>
-                                <th scope="col">Equipment</th>
                             </tr>
                         </thead>
                         <tbody id="taskList">
