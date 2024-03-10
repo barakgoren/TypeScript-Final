@@ -73,6 +73,7 @@ const displayTasks = () => {
         <td>${task._date.toDateString()}</td>
         <td>${task.time}</td>
         `;
+        }
         if (tableContent !== null) {
             tableContent.appendChild(row);
             
