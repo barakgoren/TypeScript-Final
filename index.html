@@ -27,13 +27,16 @@
     </div>
     <div id="main-container">
         <!-- New task form area -->
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-center">To Do List</h1>
+        <div id="myModal" class="modal">
+            <div class="modal-content" id="modal-content">
+                <div>
+                    <span id="editBtn" class="fas fa-edit"></span>
+                    <span class="close">&times;</span>
+                </div>
+                <div id="modal-text" class="row justify-content-center">
+
                 </div>
             </div>
-            
         </div>
         <!-- Task list area -->
         <div class="container-fluid tablePos">
@@ -63,8 +66,10 @@
                         <div class="row">
                             <div class="col-12">
                                 <button id="newTaskButton" class="AddbuttonStyle">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
-                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                        class="bi bi-plus" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
                                     </svg>
                                 </button>
                             </div>
@@ -74,65 +79,66 @@
             </div>
         </div>
     </div>
-    
+
     <div id="newTaskFormContainer" class=" container-fluid" style="display: none;">
-    <div class="row">
-        <div class="col-12">
-            <form id="newTaskForm" class="row" >
-                <div class="taskConfig">
-                    <div class="PosTask">
-                        <label class="fw-bold" for="taskName">Task Name:</label>
-                        <input type="text" class="inputPos" id="taskName" name="taskName">
+        <div class="row">
+            <div class="col-12">
+                <form id="newTaskForm" class="row">
+                    <div class="taskConfig">
+                        <div class="PosTask">
+                            <label class="fw-bold" for="taskName">Task Name:</label>
+                            <input type="text" class="inputPos" id="taskName" name="taskName">
+                        </div>
+                        <div class="PosTask">
+                            <label class="fw-bold" for="Position">Location:</label>
+                            <input type="text" class="inputPos" id="Position" name="Position">
+                        </div>
+                        <div class="PosTask">
+                            <label class="fw-bold" for="hour">Hour:</label>
+                            <select id="hour" class="inputPos" name="hour">
+                                <option value="" disabled selected>choose a hour</option>
+                                <option value="option1">00:00</option>
+                                <option value="option2">01:00</option>
+                                <option value="option3">02:00</option>
+                                <option value="option4">03:00</option>
+                                <option value="option5">04:00</option>
+                                <option value="option6">05:00</option>
+                                <option value="option7">06:00</option>
+                                <option value="option8">07:00</option>
+                                <option value="option9">08:00</option>
+                                <option value="option10">09:00</option>
+                                <option value="option11">10:00</option>
+                                <option value="option12">11:00</option>
+                                <option value="option13">12:00</option>
+                                <option value="option14">13:00</option>
+                                <option value="option15">14:00</option>
+                                <option value="option16">15:00</option>
+                                <option value="option17">16:00</option>
+                                <option value="option18">17:00</option>
+                                <option value="option19">18:00</option>
+                                <option value="option20">19:00</option>
+                                <option value="option21">20:00</option>
+                                <option value="option22">21:00</option>
+                                <option value="option23">22:00</option>
+                                <option value="option24">23:00</option>
+                            </select>
+                        </div>
+                        <div class="PosTask">
+                            <label class="fw-bold " for="taskDate">Task end-date:</label>
+                            <input type="Date" class="inputPos" id="taskDate" name="taskDate">
+                        </div>
                     </div>
-                    <div class="PosTask">
-                        <label class="fw-bold" for="Position">Location:</label>
-                        <input type="text" class="inputPos" id="Position" name="Position">
+                    <div class="d-flex flex-column align-items-center col">
+                        <label class="fw-bold" for="taskDescription">Task description:</label>
+                        <textarea class="TextAreaStyle" id="taskDescription" name="taskDescription" rows="3"
+                            style="resize: none;"></textarea>
                     </div>
-                    <div class="PosTask">
-                        <label class="fw-bold" for="hour">Hour:</label>
-                        <select id="hour" class="inputPos" name="hour">
-                            <option value="" disabled selected>choose a hour</option>
-                            <option value="option1">00:00</option>
-                            <option value="option2">01:00</option>
-                            <option value="option3">02:00</option>
-                            <option value="option4">03:00</option>
-                            <option value="option5">04:00</option>
-                            <option value="option6">05:00</option>
-                            <option value="option7">06:00</option>
-                            <option value="option8">07:00</option>
-                            <option value="option9">08:00</option>
-                            <option value="option10">09:00</option>
-                            <option value="option11">10:00</option>
-                            <option value="option12">11:00</option>
-                            <option value="option13">12:00</option>
-                            <option value="option14">13:00</option>
-                            <option value="option15">14:00</option>
-                            <option value="option16">15:00</option>
-                            <option value="option17">16:00</option>
-                            <option value="option18">17:00</option>
-                            <option value="option19">18:00</option>
-                            <option value="option20">19:00</option>
-                            <option value="option21">20:00</option>
-                            <option value="option22">21:00</option>
-                            <option value="option23">22:00</option>
-                            <option value="option24">23:00</option>
-                        </select>
+                    <div class="col-12 my-2 row justify-content-center">
+                        <button type="submit" class="Add2buttonStyle">Add Task</button>
                     </div>
-                    <div class="PosTask">
-                        <label class="fw-bold " for="taskDate">Task end-date:</label>
-                        <input type="Date" class="inputPos" id="taskDate" name="taskDate">
-                    </div>
-                </div>
-                <div class="d-flex flex-column align-items-center col">
-                    <label class="fw-bold" for="taskDescription">Task description:</label>
-                    <textarea class="TextAreaStyle" id="taskDescription" name="taskDescription" rows="3" style="resize: none;"></textarea>
-                </div>
-                <div class="col-12 my-2 row justify-content-center">
-                    <button type="submit" class="Add2buttonStyle" >Add Task</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
 
 </body>
 
