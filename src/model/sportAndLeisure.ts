@@ -1,5 +1,4 @@
 interface SportsAndLeisure extends Note {
-    location: string;
     trainingDateEvent: Date;
     time: string;
     // requiredEquipment?: string[];
@@ -7,19 +6,32 @@ interface SportsAndLeisure extends Note {
 }
 
 class Fitness extends Note implements SportsAndLeisure {
-    location: string;
     trainingDateEvent: Date;
     time: string;
-    // requiredEquipment?: string[];
-    constructor(id: number, title: string, text: string, location: string, trainingDateEvent: Date, time: string, /*requiredEquipment: string[],*/ image?: string) {
-        super(id, title, text, image);
-        this.location = location;
+    requiredEquipment?: string[];
+    constructor(id: number, title: string, text: string, location: string, trainingDateEvent: Date, time: string, requiredEquipment: string[], image?: string) {
+        super(id, title, location, text, image);
         this.trainingDateEvent = trainingDateEvent;
+        this.requiredEquipment = requiredEquipment;
         this.time = time;
     }
 
-    newNote(): void {
-        alert("You have new training")
+    newNote(tableContent: HTMLElement): void {
+        let row = document.createElement("tr");
+        row.innerHTML = `
+            <td class="bg-warning-subtle text-warning">${capitalize(Fitness.name)}</td>
+                <td class="bg-warning-subtle">${capitalize(this._title)}</td>
+                <td class="bg-warning-subtle">${this._text}</td>
+                <td class="bg-warning-subtle">${this._location}</td>
+                <td class="bg-warning-subtle">${this._date.toDateString()}</td>
+                `;
+
+        if (tableContent !== null) {
+            tableContent.appendChild(row);
+        }
+        row.addEventListener('click', () => {
+            this.alert();
+        });
     }
 
     alert(): void {
@@ -52,7 +64,7 @@ class Fitness extends Note implements SportsAndLeisure {
                     </div>
                     <div class="d-flex p-2 justify-content-center col-6">
                         <label for="taskLocation">Location:</label>
-                        <div id="taskLocation" class="mx-2">at ${this.location}</div>
+                        <div id="taskLocation" class="mx-2">at ${this._location}</div>
                     </div>
                     <div class= "d-flex p-2 flex-column align-items-center my-2">
                         <label for="taskDesc" class="h6">Description</label>
@@ -99,7 +111,7 @@ class Fitness extends Note implements SportsAndLeisure {
                             </div>
                             <div class="d-flex p-2 justify-content-center col-6">
                                 <label for="taskLocation">Location:</label>
-                                <input id="taskLocation" class="mx-2" value="${thisTask.location}">
+                                <input id="taskLocation" class="mx-2" value="${thisTask._location}">
                             </div>
                             <div class= "d-flex p-2 flex-column align-items-center my-2">
                                 <label for="taskDesc" class="h6">Description</label>
@@ -126,7 +138,7 @@ class Fitness extends Note implements SportsAndLeisure {
                         thisTask._title = title.value;
                         thisTask._date = new Date(date.value);
                         thisTask.time = time.value;
-                        thisTask.location = location.value;
+                        thisTask._location = location.value;
                         thisTask._text = desc.value;
 
                         console.log(event);

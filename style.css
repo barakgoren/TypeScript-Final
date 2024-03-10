@@ -161,3 +161,83 @@ h1{
     padding: 40px;   
      
 }
+
+
+#main-container {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.task-table {
+    /* Adjust the height of the table to the height of the window */
+    height: 100% !important;
+}
+
+tbody::-webkit-scrollbar {
+    display: none;
+}
+
+tbody {
+    display: block;
+    max-height: 15rem;
+    /* Adjust this value based on the height of your rows */
+    overflow-y: auto;
+}
+
+thead,
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+thead tr th {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    /* you may want to choose a different color */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.fa-edit {
+    color: #aaa;
+}
+.fa-edit:hover,
+.fa-edit:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
