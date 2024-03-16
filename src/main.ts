@@ -1,3 +1,12 @@
+//      Final Project TypeScript Course:
+//
+//          Contributors: Barak Goren, Michkael Halimi
+//
+//          Lecturer: Raz Dashan 
+//  -----------------------------------------------------------------
+//          GitHub Link:  
+
+
 
 const fitnessTasks: Note[] = [
     new Fitness(1, "training", "we are going to train", "at Profit", new Date(2024, 3, 17), "10:00", ["towel", "water"]),
