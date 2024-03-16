@@ -1,11 +1,10 @@
-//      Final Project TypeScript Course:
+//      Final Project TypeScript Course: "Task Manager App"
 //
 //          Contributors: Barak Goren, Michkael Halimi
 //
 //          Lecturer: Raz Dashan 
 //  -----------------------------------------------------------------
-//          GitHub Link:  
-
+//          GitHub Link:  https://github.com/barakgoren/TypeScript-Final
 
 
 const fitnessTasks: Note[] = [
